@@ -22,22 +22,22 @@ public class RedisConfig {
   
     private static Logger logger = LoggerFactory.getLogger(RedisConfig.class);  
       
-    @Bean  
-    @ConfigurationProperties(prefix="spring.redis")  
-    public JedisPoolConfig getRedisConfig(){  
-        JedisPoolConfig config = new JedisPoolConfig();  
-        return config;  
-    }  
+    @Bean
+    @ConfigurationProperties(prefix="spring.redis")
+    public JedisPoolConfig getRedisConfig(){
+        JedisPoolConfig config = new JedisPoolConfig();
+        return config;
+    }
       
-    @Bean  
-    @ConfigurationProperties(prefix="spring.redis")  
-    public JedisConnectionFactory getConnectionFactory(){  
-        JedisConnectionFactory factory = new JedisConnectionFactory();  
-        JedisPoolConfig config = getRedisConfig();  
-        factory.setPoolConfig(config);  
-        logger.info("JedisConnectionFactory bean init success.");  
-        return factory;  
-    }  
+    @Bean
+    @ConfigurationProperties(prefix="spring.redis")
+    public JedisConnectionFactory getConnectionFactory(){
+        JedisConnectionFactory factory = new JedisConnectionFactory();
+        JedisPoolConfig config = getRedisConfig();
+        factory.setPoolConfig(config);
+        logger.info("JedisConnectionFactory bean init success.");
+        return factory;
+    }
     
     /**
      * Reids 操作模板
